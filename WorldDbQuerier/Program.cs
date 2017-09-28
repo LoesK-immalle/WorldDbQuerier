@@ -1,10 +1,11 @@
 ﻿using System;
+using MySql.Data.MySqlClient;
 
 namespace WorldDbQuerier
 {
     class Program
     {
-        static string version = "0.1";
+        static string version = "0.2";
 
         static void Version()
         {
@@ -25,7 +26,6 @@ namespace WorldDbQuerier
                         break;
                 }
             }
-            
         }
     }
 }
