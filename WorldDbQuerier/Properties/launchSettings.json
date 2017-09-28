@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "WorldDbQuerier": {
+      "commandName": "Project"
+    },
+    "WorldDbQuerierWith-v": {
+      "commandName": "Project",
+      "commandLineArgs": "-v"
+    }
+  }
+}
