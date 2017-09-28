@@ -25,10 +25,7 @@ namespace WorldDbQuerier
                         break;
                 }
             }
-            else
-            {
-                Console.WriteLine("Hello World");
-            }
+            
         }
     }
 }
