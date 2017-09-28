@@ -5,7 +5,7 @@ namespace WorldDbQuerier
 {
     class Program
     {
-        static string version = "0.2";
+        static string version = "0.3";
 
         static void Version()
         {
@@ -27,6 +27,18 @@ namespace WorldDbQuerier
             Console.WriteLine("Amount of Countries : {0}", amountOfCountries);
         }
 
+        static void ShowAllCountries()
+        {
+            MySqlConnection conn = new MySqlConnection();
+            conn.ConnectionString = "Server=192.168.56.101;Port=3306;Database=world;Uid=imma;Pwd=ImmaPwd;";
+
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT count(*) FROM world.Country";
+
+            conn.Open();
+        }
+
         static void Main(string[] args)
         {
             if (args.Length > 0)
@@ -42,7 +54,10 @@ namespace WorldDbQuerier
                 }
             }
 
-            AmountOfCountries();
+            Console.WriteLine("Make a choice");
+            Console.WriteLine("1. Show amount of countries in database");
+            Console.WriteLine("2. Show all countries in database");
+            
         }
     }
 }
