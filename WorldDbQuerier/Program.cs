@@ -34,9 +34,21 @@ namespace WorldDbQuerier
 
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT count(*) FROM world.Country";
+            cmd.CommandText = "SELECT * FROM world.Country";
 
             conn.Open();
+
+            MySqlDataReader rdr = null;
+            rdr = cmd.ExecuteReader();
+
+
+            while (rdr.Read())
+            {
+                string name = (string)rdr["Name"];
+                Console.WriteLine(name);
+            }
+            rdr.Dispose();
+            conn.Close();
         }
 
         static void Main(string[] args)
@@ -53,11 +65,21 @@ namespace WorldDbQuerier
                         break;
                 }
             }
-
+            string choice;
             Console.WriteLine("Make a choice");
             Console.WriteLine("1. Show amount of countries in database");
             Console.WriteLine("2. Show all countries in database");
-            
+            choice = Console.ReadLine();
+
+            switch(choice)
+            {
+                case "1":
+                    AmountOfCountries();
+                    break;
+                case "2":
+                    ShowAllCountries();
+                    break;
+            }
         }
     }
 }
